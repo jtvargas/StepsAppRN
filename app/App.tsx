@@ -16,7 +16,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -76,20 +75,14 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <Section title="Steps">0 today</Section>
+          <Text style={styles.ibmPlexBold}>This text uses a ibm plex bold</Text>
+          <Text style={styles.ibmPlexMedium}>
+            This text uses a ibm plex medium
+          </Text>
+          <Text style={styles.ibmPlexRegular}>
+            This text uses a ibm plex regular
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -112,6 +105,18 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  ibmPlexBold: {
+    fontFamily: 'IBMPlexMono-Bold',
+    fontSize: 20,
+  },
+  ibmPlexRegular: {
+    fontFamily: 'IBMPlexMono-Regular',
+    fontSize: 20,
+  },
+  ibmPlexMedium: {
+    fontFamily: 'IBMPlexMono-Medium',
+    fontSize: 20,
   },
 });
 
