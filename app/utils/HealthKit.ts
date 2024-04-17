@@ -160,7 +160,7 @@ class HealthKit implements IHealthKit {
   }
 }
 
-// Get Steps today iOS
+// iOS FNs
 const getTodayStepsCountIOS = () => {
   return new Promise((resolve, reject) => {
     let options = {
@@ -203,7 +203,7 @@ const getDistanceWalkingIOS = () => {
   });
 };
 
-// Android
+// Android FNs
 const getStepsCountAndroid = async () => {
   try {
     const res = await GoogleFit.getDailySteps();
@@ -217,7 +217,6 @@ const getStepsCountAndroid = async () => {
   }
 };
 
-// TODO: Clean code
 const getDistanceWalkingAndroid = async () => {
   try {
     const today = new Date();
