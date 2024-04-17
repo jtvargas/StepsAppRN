@@ -76,7 +76,7 @@ function App(): React.JSX.Element {
         ]}>
         <Section title="Steps Today">{stepsCount}</Section>
         <Section title="Distance Walking">
-          {walkingDistance.toFixed(1)} mile
+          {walkingDistance?.toFixed?.(2)} mile
         </Section>
 
         <Button onPress={refreshData} title="Refresh" />

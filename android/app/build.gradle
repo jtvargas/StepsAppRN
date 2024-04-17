@@ -69,6 +69,7 @@ def enableProguardInReleaseBuilds = false
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
 
+// 818729143624-urj4s590f1lsstv87k207fcc5s0rljre.apps.googleusercontent.com
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -108,6 +109,9 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
+      
+    // google fit setup
+    implementation project(':react-native-google-fit')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

@@ -5,6 +5,9 @@ import AppleHealthKit, {
   HealthKitPermissions,
 } from 'react-native-health';
 
+// Android
+import GoogleFit, {Scopes} from 'react-native-google-fit';
+
 export interface IHealthKit {
   isAvailable: boolean;
   initKit(): void;
@@ -84,14 +87,28 @@ class HealthKit implements IHealthKit {
   }
 
   private initHealthKitForAndroid(): void {
-    // AppleHealthKit.initHealthKit(permissions, (error: string) => {
-    //   if (error) {
-    //     console.error('[ERROR] Cannot grant permissions!', error);
-    //     this.handleKitError(error);
-    //   } else {
-    //     this.handleKitSuccess();
-    //   }
-    // });
+    const options = {
+      scopes: [
+        Scopes.FITNESS_ACTIVITY_READ,
+        Scopes.FITNESS_ACTIVITY_WRITE,
+        Scopes.FITNESS_LOCATION_READ,
+      ],
+    };
+
+    GoogleFit.authorize(options)
+      .then(authResult => {
+        if (authResult.success) {
+          console.log('AUTH_SUCCESS');
+          this.handleKitSuccess();
+        } else {
+          this.handleKitError('AUTH_DENIED');
+          console.log('AUTH_DENIED', authResult.message);
+        }
+      })
+      .catch(error => {
+        console.log('AUTH_ERROR');
+        this.handleKitError(error);
+      });
   }
 
   handleKitSuccess = (): void => {
@@ -118,7 +135,7 @@ class HealthKit implements IHealthKit {
 
     const stepsCountFunction = Platform.select({
       ios: getTodayStepsCountIOS,
-      android: () => Promise.resolve(0),
+      android: getStepsCountAndroid,
       default: () => Promise.resolve(0),
     });
 
@@ -135,7 +152,7 @@ class HealthKit implements IHealthKit {
 
     const walkingDistance = Platform.select({
       ios: getDistanceWalkingIOS,
-      android: () => Promise.resolve(0),
+      android: getDistanceWalkingAndroid,
       default: () => Promise.resolve(0),
     });
 
@@ -185,4 +202,37 @@ const getDistanceWalkingIOS = () => {
     );
   });
 };
+
+// Android
+const getStepsCountAndroid = async () => {
+  try {
+    const res = await GoogleFit.getDailySteps();
+    const dailyStepCount = res.filter(
+      re => re.source === 'com.google.android.gms:estimated_steps',
+    )[0];
+
+    return dailyStepCount.steps[0].value;
+  } catch (e) {
+    console.log('error getStepsCountAndroid', e);
+  }
+};
+
+// TODO: Clean code
+const getDistanceWalkingAndroid = async () => {
+  try {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to 00:00:00.000
+    const startOfDay = today.toISOString();
+
+    const opt = {
+      startDate: startOfDay,
+      endDate: new Date().toISOString(),
+    };
+
+    const res = await GoogleFit.getDailyDistanceSamples(opt);
+
+    return res[0].distance ? res[0].distance / 1609.344 : 0.0;
+  } catch (e) {}
+};
+
 export default HealthKit;
