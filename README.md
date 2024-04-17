@@ -18,13 +18,11 @@ An app that connects with **HealthKit (Apple)** and **Google Fit (Google)** to d
 
 ## Screenshots
 
-<img src="./assets/preview/android-app-example.png"  width="140" height="300">
-&nbsp;<img src="./assets/preview/ios-app-example.jpeg"  width="140" height="300">&nbsp;
+<img src="./assets/preview/android-app-example.png"  width="140" height="300">&nbsp;<img src="./assets/preview/ios-app-example.jpeg"  width="140" height="300">&nbsp;
 
 ## Demo (Gifs)
 
-<img src="./assets/preview/steps-app-rn.gif"  width="140" height="300">
-&nbsp;<img src="./assets/preview/ios-example.gif"  width="140" height="300">&nbsp;
+<img src="./assets/preview/steps-app-rn.gif"  width="140" height="300">&nbsp;<img src="./assets/preview/ios-example.gif"  width="140" height="300">&nbsp;
 
 ## Structure
 
