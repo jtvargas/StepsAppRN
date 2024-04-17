@@ -24,6 +24,11 @@ An app that connects with **HealthKit (Apple)** and **Google Fit (Google)** to d
 
 <img src="./assets/preview/steps-app-rn.gif"  width="140" height="300">&nbsp;<img src="./assets/preview/ios-example.gif"  width="140" height="300">&nbsp;
 
+
+## Basic Workflow
+
+<img src="./assets/preview/basic-workflow.png"  width="580" height="300">&nbsp;
+
 ## Structure
 
 - `Components`: Essential, reusable building blocks like section.
