@@ -1,79 +1,92 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Steps & Distance App: React Native App
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Mobile application developed with **React Native**.
 
-## Step 1: Start the Metro Server
+An app that connects with **HealthKit (Apple)** and **Google Fit (Google)** to display the steps and distance from health services.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+<img src="./assets/preview/healthkit-logo.png"  width="105" height="85">&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/preview/google-fit.png"  width="105" height="85">
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Table of Contents
+- [Screenshots](#screenshots)
+- [Structure](#structure)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [License](#license)
+
+## Screenshots
+
+<img src="./assets/preview/android-app-example.png"  width="140" height="300">
+&nbsp;<img src="./assets/preview/ios-app-example.jpeg"  width="140" height="300">&nbsp;
+
+## Demo (Gifs)
+
+<img src="./assets/preview/steps-app-rn.gif"  width="140" height="300">
+&nbsp;<img src="./assets/preview/ios-example.gif"  width="140" height="300">&nbsp;
+
+## Structure
+
+- `Components`: Essential, reusable building blocks like section.
+- `App`: Principal app screen page.
+- `hooks`: Reusable hooks.
+- `utils`: Utils folder to declare the core utils used in the app, in this case HealthKit
+
+## Features
+The current application offers:
+
+- **Health Data**: The application connects to your Apple or Android account to display your health data like Steps or Distance using HealthKit for Apple devices and Google Fit for Google devices.
+
+## Prerequisites
+Ensure you have met the following requirements:
+
+* You have installed the latest version of:
+	*  `yarn`
+   * `.nvmrc`
+
+## Dependencies
+The following major dependencies are used in the project:
+
+- React (`react: 18.2.0`) 
+- React Native (`react-native: "0.73.6`) as the main frameworks for building the app interface.
+- Health Packages (`react-native-google-fit: 0.20.0`, `react-native-health: 1.18.0`) to connect both platform with the Health services for each platform
+
+**Dependencies Documentation:**
+- [React Native Google Fit](https://github.com/StasDoskalenko/react-native-google-fit#readme)
+- [React Native HealthKit](https://github.com/agencyenterprise/react-native-healthkit#readme)
+
+
+## Installation
+Describe the installation process. Include the step-by-step process.
 
 ```bash
-# using npm
-npm start
+# Clone this repository
+$ git clone git@github.com:jtvargas/StepsAppRN.git
 
-# OR using Yarn
-yarn start
+# Go into the repository
+$ cd StepsAppRN
+
+# Install dependencies
+$ yarn install
+
+# Start the server
+$ yarn start
+
 ```
+**Prerequisites**: For Android you need to ask the owner of this repo to add your gmail account to the tester list.
 
-## Step 2: Start your Application
+### Run the app (**Simulator**)
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+**iOS**
+- Run `yarn ios`
 
-### For Android
+For physical device use xcode
 
-```bash
-# using npm
-npm run android
+**Android**
+- Run `yarn android`
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+Copyright 2024 © Jonathan Taveras
